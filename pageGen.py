@@ -9,6 +9,7 @@ from subprocess import call
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
+
 from django.template import Template,Context
 
 usage = " %prog [options] Results directory, html output directory"
