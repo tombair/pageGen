@@ -150,15 +150,17 @@ def detailRun(results):
         rkey = re.compile("""regionKey\n({\n\s+region = (\d+);.*)""")
         rf = open(r).read()
         regions = rkey.findall(rf)
+
 results = {}
 
 id = getIdProject(options.project)
-results['title'] = '454 Results'
+results['title'] = 'NGS Sequencing Results'
 results['description'] = ""
 for i in id:
     results['description'] += i['title']
 #results['resultDir'] = linkResults(resultDir)
-#results['resultDir'] = './results'
+linkResults(resultDir)
+results['resultDir'] = './results'
 if options.assembly == True:
     results['summary'] = detailResults(resultDir)
 results['regions'] = detailRun(resultDir)
