@@ -106,14 +106,14 @@ def getInfoProject(pid,type):
 
 def linkResults(results):
     #make a symlink from the web directory to the results return the symlink path
-    newPath = os.path.join(outputDir,"results")
+    newPath = os.path.join(outputDir,"./results")
     print "linking %s to %s" %(newPath, results)
-    #newPath = "./results"
     try:
         os.symlink(results,newPath)
     except Exception, e:
         print "Error symlinking %s %s" % (e,newPath)
     newPath = newPath.replace (htmlRoot,"")
+    newPath = "./results"
     return newPath
 
 def getFile(filename,dir):
@@ -174,7 +174,7 @@ for i in id:
     if len(i['files']) > 0:
         for f in i['files']:
             t = {}
-            t['filepath'] = "./%s" % (i['files'][f]['filename'],)
+            t['filepath'] = modifyPath(i['files'][f]['filepath'])
             t['filename'] = i['files'][f]['filename']
             t['filemime'] = i['files'][f]['filemime']
             results['file'].append(t.copy())
