@@ -174,7 +174,8 @@ for i in id:
     if len(i['files']) > 0:
         for f in i['files']:
             t = {}
-            t['filepath'] = modifyPath(i['files'][f]['filepath'])
+            t['filepath'] = "./%s" %(i['files'][f]['filename'],)
+            #t['filepath'] = modifyPath(i['files'][f]['filepath'])
             t['filename'] = i['files'][f]['filename']
             t['filemime'] = i['files'][f]['filemime']
             results['file'].append(t.copy())
